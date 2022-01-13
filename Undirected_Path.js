@@ -3,7 +3,8 @@
 
 const undirectedPath = (edges, nodeA, nodeB) => {
   const graph = buildGraph(edges);
-  return hasPath(graph, nodeA, nodeB, new Set());
+  const visited = new Set();
+  return hasPath(graph, nodeA, nodeB, visited);
 };
 
 const hasPath = (graph, src, dst, visited) => {
@@ -36,7 +37,6 @@ const buildGraph = (edges) => {
     graph[a].push(b);
     graph[b].push(a);
   }
-  console.log(graph);
   return graph;
 };
 
